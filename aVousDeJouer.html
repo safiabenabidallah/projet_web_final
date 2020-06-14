@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AdoptLife</title>
+
+</head>
+
+<body>
+
+	<div id="header"></div>
+
+	<div class="table" >
+
+		<div class="form">
+			<label for="species">espèce :</label>
+			<select name="species" id="species">
+			</select>
+			<label for="age" id="labelAge" >age :</label>
+			<select name="age" id="age">
+				<option value="" selected>-</option>
+				<option value="Baby">bébé</option>
+				<option value="Young">jeune</option>
+				<option value="Adult">adulte</option>
+				<option value="Senior">Senior</option>
+			</select>
+			<input type="submit" value="Appliquer" onclick="getInput()">
+		</div>
+
+		<div id="tableContent">
+			<div class="loader"></div>
+		</div>
+	</div>
+
+	<div id="footer"></div>
+
+</body>
+
+<script type="text/javascript" src="./tools/loadHeadFooter.js"></script>
+<script type="text/javascript" src="./components/header.js"></script>
+<script type="text/javascript" src="./components/footer.js"></script>
+<script type="text/javascript" src="./components/petFinder.js"></script>
+
+<script type="text/javascript">
+
+	let globTypes = null;
+
+	onLoad((res) => {
+		display(res, "tableContent")
+	})
+
+	logIn().then(res => {
+		getTypes().then(types => {
+
+			globTypes = types;
+			let picker = document.getElementById("species");
+
+			const html = types.types.reduce((acc, e) => {
+				acc += `<option value=${e.name}>${e.name}</option>`
+				return acc;
+			}, '<option value="" selected>-</option>');
+			picker.innerHTML = html;
+		}).catch(e => console.error(e));
+	}).catch(e => console.error(e));
+
+	function getInput() {
+		const species = document.getElementById("species").value;
+		const age = document.getElementById("age").value;
+
+		loading("tableContent");
+
+		console.log(species);
+		console.log(age);
+
+		setType(species);
+		setAge(age);
+	}
+
+	loadHeader('./components/header.html').then(e => setActiveHeader()).catch(e => console.error(e));
+	loadFooter('./components/footer.html').catch(e => console.error(e));
+
+</script>
+
+ <link rel="stylesheet" type="text/css"  href="./index.css">
+ <link rel="stylesheet" type="text/css"  href="./components/loader.css">
+
+<style type="text/css">
+	.table {
+		width: 100vw;
+		margin-top: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		min-height: 90vh;
+	}
+
+	.form {
+		margin:1rem;
+	}
+
+	#labelAge {
+		margin-left: 5vw
+	}
+
+	#tableContent {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		margin: 2em auto;
+		width: 90%;
+	}
+
+	.tableHeader {
+		display: flex;
+		flex-flow: row wrap;
+		border-left: solid 1px;
+		width: 90%;
+	}
+
+	.tableLine {
+		display: flex;
+		flex-flow: row wrap;
+		border-left: solid 1px;
+		width: 90%;
+	}
+
+	.tableLine:hover {
+		cursor: pointer;
+		border-left: solid 2px rgb(90, 42, 116);
+	}
+
+	.tableLine:hover .tableCell {
+		border-top: solid 2px rgb(90, 42, 116);
+		border-right: solid 2px rgb(90, 42, 116);
+		border-bottom: solid 2px rgb(90, 42, 116);
+	}
+
+	.tableCell {
+		width: calc(90% / 5 /* number of row + 1*/ );
+		text-align: center;
+		padding: 0.5em 0.5em;
+		border-right: solid 1px;
+		border-bottom: solid 1px;
+	}
+
+	.tableCellHeader {
+		width: calc(90% / 5 /* number of row + 1*/ );
+		text-align: center;
+		padding: 0.5em 0.5em;
+		border-right: solid 1px black;
+		border-bottom: solid 1px black;
+		background-color: rgb(90, 42, 116);
+		color: white;
+	}
+
+	@media screen and (max-width: 600px) {
+		.form {
+			display: flex;
+			flex-direction: column;
+		}
+
+		#labelAge {
+			margin-left: 0vh;
+			margin-top: 1vh;
+		}
+
+		.tableLine:hover .tableCell {
+			border-top: solid 1px rgb(90, 42, 116);
+			border-right: solid 1px rgb(90, 42, 116);
+			border-bottom: solid 1px rgb(90, 42, 116);
+		}
+
+		.tableCell {
+			width: calc(80% / 5 /* number of row + 1*/ );
+			font-size: 10px;
+		}
+
+		.tableCellHeader {
+			width: calc(80% / 5 /* number of row + 1*/ );
+			font-size: 10px;
+		}
+	}
+
+</style>
+
+</html>

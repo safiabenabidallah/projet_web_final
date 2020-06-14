@@ -1,0 +1,202 @@
+@font-face {
+	font-family: Montserrat;
+	src: url(./fonts/Montserrat-Regular.ttf);
+}
+
+body {
+	margin: 0;
+	font-family: Montserrat;
+}
+
+html, body {
+	max-width: 100% !important;
+	overflow-x: hidden !important;
+}
+
+.landingImage {
+	flex-wrap: wrap;
+	display: flex;
+	background-repeat: no-repeat;
+	background-image: url(https://www.la-spa.fr/sites/default/files/pages/principales/massai_2_mois_-_chilleurs-aux-bois_45_1.jpg);
+	background-size: cover;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	overflow: hidden;
+	border: 'none';
+	background-position: center;
+}
+
+.backgroundColor {
+	flex-wrap: wrap;
+	display: flex;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	overflow: hidden;
+	border: 'none';
+	background-color: rgba(0,0,0,0.5);
+}
+
+.landingImage img {
+	width: 25vw;
+	margin-top: 15vh;
+}
+
+.landingImage h1 {
+	font-size: 64px;
+	color: white;
+	margin-top: 15vh;
+}
+
+.landingImage h2 {
+	font-size: 44px;
+	color:white;
+	margin-top: 1vh;
+}
+
+.cutResponsive {
+	display: flex;
+	flex-direction: row;
+}
+
+.cutResponsive h2 {
+	margin-right: 17px;
+}
+
+@media screen and (max-width: 600px) {
+	.landingImage img {
+		width: 50vw;
+	}
+
+	.cutResponsive {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.cutResponsive h2 {
+		margin-right: 0px;
+	}
+}
+
+.accueil {
+	height:25vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.accueil h1 {
+	font-size: 44px;
+}
+
+.accueil p {
+	font-size: 22px;
+}
+
+.textLeft {
+	flex-wrap: wrap;
+	display: flex;
+	background-repeat: no-repeat;
+	background-image: url(https://assets.petco.com/petco/image/upload/f_auto,q_auto/res-dog-cat-2-060117-hero-810w-223h-d);
+	background-size: cover;
+	justify-content: center;
+	align-items: flex-end;
+	flex-direction: column;
+	overflow: hidden;
+	border: 'none';
+	background-position: center;
+}
+
+.textLeftTextZoneBackground {
+	flex-wrap: wrap;
+	display: flex;
+	width: 96vw;
+	justify-content: center;
+	align-items: flex-end;
+	flex-direction: column;
+	overflow: hidden;
+	border: 'none';
+	background: linear-gradient(to left, #ffffffff, #ffffff00);
+	padding-right: 4vw;
+}
+
+.textLeftTextZoneSpace {
+	width: 30vw;
+	text-align: center;
+}
+
+.textLeftTextZoneSpace h1 {
+	color: rgb(90, 42, 116);
+}
+
+.textRight {
+	flex-wrap: wrap;
+	display: flex;
+	background-repeat: no-repeat;
+	background-image: url(https://d17fnq9dkz9hgj.cloudfront.net/uploads/2015/08/organize-a-local-pet-adoption-event-632x304.jpg);
+	background-size: cover;
+	justify-content: center;
+	align-items: flex-start;
+	flex-direction: column;
+	overflow: hidden;
+	border: 'none';
+	background-position: center;
+}
+
+.textRightTextZoneBackground {
+	flex-wrap: wrap;
+	display: flex;
+	width: 98vw;
+	justify-content: center;
+	align-items: flex-start;
+	flex-direction: column;
+	overflow: hidden;
+	border: 'none';
+	background: linear-gradient(to right, #ffffffff, #ffffff00);
+	padding-left: 2vw;
+}
+
+.textRightTextZoneSpace {
+	width: 30vw;
+	text-align: center;
+}
+
+.textRightTextZoneSpace h1 {
+	color: rgb(136, 49, 183);
+}
+
+@media screen and (max-width: 600px) {
+	.textLeftTextZoneBackground {
+		flex-direction: row;
+		background-color: #ffffffba;
+		width: 100vw;
+		padding-right: 0vw;
+	}
+
+	.textLeftTextZoneSpace {
+		width: 100vw;
+	}
+
+	.textRightTextZoneBackground {
+		flex-direction: row;
+		background-color: #ffffffba;
+		width: 100vw;
+		padding-left: 0vw;
+	}
+
+	.textRightTextZoneSpace {
+		width: 100vw;
+	}
+}
+
+.contentCut {
+	width: 50%;
+	height: 1px;
+	background-color: #aaa;
+	border: 2px solid #ddd;
+	box-shadow: 5px 5px 5px #ddd;
+	margin:2vh;
+}

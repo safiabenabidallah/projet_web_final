@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AdoptLife</title>
+
+</head>
+
+<body>
+
+	<div id="header"></div>
+
+	<div class="IndexContent">
+
+		<div class="landingImage">
+			<div class="backgroundColor" >
+				<img alt="logo" src="./logo-adoptLife.png" >
+				<div class="cutResponsive">
+					<h2>Adoption</h2>
+					<h2>animal</h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="accueil" >
+			<p>Bienvenue sur AdoptLife</p>
+			<p>Site spécialisé au sujet de l'adoption animalière</p>
+		</div>
+
+		<div class="textLeft" >
+			<div class="textLeftTextZoneBackground" >
+				<div class="textLeftTextZoneSpace">
+					<h1>Envie d'adopter ?</h1>
+					<P>Notre page "en savoir plus" dispose d'un grand nombre de blogs</p>
+					<p>vous trouverez de nombreuses informations vis-à-vis de l'adoption</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="contentCut"></div>
+
+		<div class="textRight" >
+			<div class="textRightTextZoneBackground" >
+				<div class="textRightTextZoneSpace">
+					<h1>Besoin de compagnie ? Vous êtes au bon endroit</h1>
+					<p>Nous fournissons une page "à vous de jouer" permettant l'adoption en ligne</p>
+					<p>Ce service utilise <a href="https://www.petfinder.com/">Petfinder</a>, il n'est donc disponible qu'en Amérique du nord pour le moment</p>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+	<div id="footer"></div>
+
+</body>
+
+<script type="text/javascript" src="./tools/loadHeadFooter.js"></script>
+<script type="text/javascript" src="./components/header.js"></script>
+<script type="text/javascript" src="./components/footer.js"></script>
+
+<script type="text/javascript">
+
+	loadHeader('./components/header.html').then(e => setActiveHeader()).catch(e => console.log(e));
+	loadFooter('./components/footer.html').catch(e => console.log(e));
+
+</script>
+
+ <link rel="stylesheet" type="text/css"  href="./index.css">
+
+<style type="text/css">
+	.IndexContent {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+</style>
+
+</html>

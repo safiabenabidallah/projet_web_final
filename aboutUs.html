@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AdoptLife</title>
+
+</head>
+
+<body>
+
+	<div id="header"></div>
+
+	<div class="mainContent">
+		<div class="PersonnalContent" >
+			<div class="peopleContainer">
+				<img src="./ines.jpg" alt="ines" >
+				<p>Je m'appelle Ines, Je m'occupe du design du site</p>
+			</div>
+			<div class="peopleContainer">
+				<img src="./safia.png" alt="safia" >
+				<p>Je m'appelle Safia, Je suis lead developer sur le site</p>
+			</div>
+		</div>
+		<div class="contentCut"></div>
+		<p>Nous avons créé ce site dans le cadre de nos cours</p>
+		<p>Le sujet donnait le libre choix du thème du site, nous avons donc décidé de faire un site à propos de l'adoption animal</p>
+		<p>Ce thème nous a permis d'utiliser l'api PetFinder pour créer un mini moteur de recherche</p>
+	</div>
+
+	<div id="footer"></div>
+
+</body>
+
+<script type="text/javascript" src="./tools/loadHeadFooter.js"></script>
+<script type="text/javascript" src="./components/header.js"></script>
+<script type="text/javascript" src="./components/footer.js"></script>
+
+<script type="text/javascript">
+
+	fetch('./articles.json').then(async (res) => {
+		let articles = await res.json();
+		console.log(articles);
+	}).catch(e => console.error(e));
+
+	loadHeader('./components/header.html').then(e => setActiveHeader()).catch(e => console.log(e));
+	loadFooter('./components/footer.html').catch(e => console.log(e));
+
+</script>
+
+ <link rel="stylesheet" type="text/css"  href="./index.css">
+
+ <style type="text/css">
+
+ 	.mainContent {
+ 		min-height: 100vh;
+ 		display: flex;
+ 		flex-direction: column;
+ 		align-items: center;
+ 		justify-content: center;
+ 	}
+
+ 	.PersonnalContent {
+ 		width: 100vw;
+ 		display: flex;
+ 		flex-direction: row;
+ 		align-items: center;
+ 		justify-content: space-around;
+ 		margin-bottom: 5vh;
+ 	}
+
+ 	.peopleContainer {
+ 		display: flex;
+ 		flex-direction: column;
+ 		align-items: center;
+ 		padding: 1rem;
+ 		justify-content: center;
+ 		border: 2px solid #ddd;
+ 		box-shadow: 5px 5px 5px #ddd;
+ 	}
+
+ 	.peopleContainer img {
+ 		height: 20vh;
+ 		width: auto;
+ 		border-radius: 50%;
+ 		border: 2px solid #ddd;
+ 		box-shadow: 5px 5px 5px #ddd;
+ 	}
+
+@media screen and (max-width: 600px) {
+	.PersonnalContent {
+		margin-top: 5vh;
+		flex-direction: column;
+	}
+	.peopleContainer {
+		margin-top: 5vh;
+	}
+}
+
+ </style>
+
+</html>
